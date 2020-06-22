@@ -6,6 +6,7 @@
      "jest": true
   },
   "rules": {
+    "no-plusplus": "off",
     "no-restricted-syntax": [
       "error",
       "LabeledStatement",
