@@ -47,7 +47,7 @@ let interRand = setInterval(() => {
 // interRem();
 // interRand();
 divParent.addEventListener('click', (event) => {
-  if (event.target.id == rand) {
+  if (event.target.id == rand&&pG.innerText!= "game over") {
     console.log(event.target.id);
     pUser.innerText = Number(pUser.innerText) + 1;
   } else {
