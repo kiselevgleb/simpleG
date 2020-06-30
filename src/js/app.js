@@ -14,6 +14,7 @@ let i;
 let rand;
 const classParent = 'hole-game';
 const c = 'hole';
+let butBool = false;
 divParent.classList.add(classParent);
 document.body.appendChild(divParent);
 document.body.appendChild(pUser);
@@ -35,7 +36,7 @@ const interRem = setInterval(() => {
       i = index;
     }
   }
-}, 500);
+}, 1000);
 
 const interRand = setInterval(() => {
   rand = getRandomInt();
@@ -43,8 +44,21 @@ const interRand = setInterval(() => {
     rand = getRandomInt();
   }
   but[rand].className = 'hole hole_has-mole';
-}, 500);
+  if (!butBool) {
+    if (Number(pG.innerText) < 4) {
+      pG.innerText = Number(pG.innerText) + 1;
+    } else {
+      pG.innerText = 'game over';
+      clearInterval(interRand);
+      clearInterval(interRem);
+    }
+  }
+  butBool = false;
+}, 1000);
+
+
 divParent.addEventListener('click', (event) => {
+  butBool = true;
   if (event.target.id === rand && pG.innerText !== 'game over') {
     pUser.innerText = Number(pUser.innerText) + 1;
   } else if (Number(pG.innerText) < 4) {
