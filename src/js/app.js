@@ -47,7 +47,7 @@ const interRand = setInterval(() => {
   if (!butBool) {
     if (Number(pG.innerText) < 4) {
       pG.innerText = Number(pG.innerText) + 1;
-    } else {
+    } else if (Number(pG.innerText) === 4) {
       pG.innerText = 'game over';
       clearInterval(interRand);
       clearInterval(interRem);
@@ -56,14 +56,13 @@ const interRand = setInterval(() => {
   butBool = false;
 }, 1000);
 
-
 divParent.addEventListener('click', (event) => {
   butBool = true;
-  if (event.target.id === rand && pG.innerText !== 'game over') {
+  if (event.target.id === rand.toString() && pG.innerText !== 'game over') {
     pUser.innerText = Number(pUser.innerText) + 1;
   } else if (Number(pG.innerText) < 4) {
     pG.innerText = Number(pG.innerText) + 1;
-  } else {
+  } else if (Number(pG.innerText) === 4) {
     pG.innerText = 'game over';
     clearInterval(interRand);
     clearInterval(interRem);
